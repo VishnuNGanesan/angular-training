@@ -1,5 +1,4 @@
 export interface MovieDetails {
-  [id: string]: {
     id: string;
     title: string;
     duration: string;
@@ -10,7 +9,6 @@ export interface MovieDetails {
     poster: string;
     producers: string[];
     summary: string;
-  };
 }
 export interface Movie {
   id: string;

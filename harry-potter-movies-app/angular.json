@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "harry-potter-movies-app": {
+    "harry-potter-movies": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -11,20 +11,22 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/harry-potter-movies-app",
+            "outputPath": "dist/harry-potter-movies",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/mockServiceWorker.js"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -46,12 +48,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -60,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "harry-potter-movies-app:build:production"
+              "buildTarget": "harry-potter-movies:build:production"
             },
             "development": {
-              "browserTarget": "harry-potter-movies-app:build:development"
+              "buildTarget": "harry-potter-movies:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +70,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "harry-potter-movies-app:build"
+            "buildTarget": "harry-potter-movies:build"
           }
         },
         "test": {
@@ -87,6 +86,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -96,6 +96,6 @@
     }
   },
   "cli": {
-    "analytics": "be0f3031-34c1-4c41-8d04-cad08c577a67"
+    "analytics": "58970698-8950-4d9b-8a08-ee05dc43b228"
   }
 }
